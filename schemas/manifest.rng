@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="" xmlns:android="http://schemas.android.com/apk/res/android" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <start>
+    <element name="manifest">
+      <attribute name="package">
+        <data type="NCName"/>
+      </attribute>
+      <optional>
+        <attribute name="android:uiOptions">
+          <data type="NCName"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="android:versionCode">
+          <data type="integer"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="android:versionName">
+          <data type="NMTOKEN"/>
+        </attribute>
+      </optional>
+      <oneOrMore>
+        <choice>
+          <text/>
+          <ref name="meta-data"/>
+          <element name="application">
+            <optional>
+              <attribute name="android:allowBackup">
+                <data type="boolean"/>
+              </attribute>
+            </optional>
+            <optional>
+              <attribute name="android:backupAgent">
+                <data type="NCName"/>
+              </attribute>
+            </optional>
+            <optional>
+              <attribute name="android:debuggable">
+                <data type="boolean"/>
+              </attribute>
+            </optional>
+            <optional>
+              <attribute name="android:description"/>
+            </optional>
+            <optional>
+              <attribute name="android:fullBackupContent"/>
+            </optional>
+            <optional>
+              <attribute name="android:hardwareAccelerated">
+                <data type="boolean"/>
+              </attribute>
+            </optional>
+            <optional>
+              <attribute name="android:icon"/>
+            </optional>
+            <optional>
+              <attribute name="android:label"/>
+            </optional>
+            <optional>
+              <attribute name="android:logo"/>
+            </optional>
+            <optional>
+              <attribute name="android:name">
+                <data type="NMTOKEN"/>
+              </attribute>
+            </optional>
+            <optional>
+              <attribute name="android:persistent">
+                <data type="boolean"/>
+              </attribute>
+            </optional>
+            <optional>
+              <attribute name="android:supportsRtl">
+                <data type="boolean"/>
+              </attribute>
+            </optional>
+            <optional>
+              <attribute name="android:theme"/>
+            </optional>
+            <optional>
+              <element name="uses-library">
+                <attribute name="android:name">
+                  <data type="NCName"/>
+                </attribute>
+                <optional>
+                  <attribute name="android:required">
+                    <data type="boolean"/>
+                  </attribute>
+                </optional>
+              </element>
+            </optional>
+            <zeroOrMore>
+              <choice>
+                <ref name="meta-data"/>
+                <element name="activity">
+                  <optional>
+                    <attribute name="android:allowEmbedded">
+                      <data type="boolean"/>
+                    </attribute>
+                  </optional>
+                  <optional>
+                    <attribute name="android:configChanges"/>
+                  </optional>
+                  <optional>
+                    <attribute name="android:enabled"/>
+                  </optional>
+                  <optional>
+                    <attribute name="android:excludeFromRecents">
+                      <data type="boolean"/>
+                    </attribute>
+                  </optional>
+                  <optional>
+                    <attribute name="android:exported">
+                      <data type="boolean"/>
+                    </attribute>
+                  </optional>
+                  <optional>
+                    <attribute name="android:hardwareAccelerated">
+                      <data type="boolean"/>
+                    </attribute>
+                  </optional>
+                  <optional>
+                    <attribute name="android:icon"/>
+                  </optional>
+                  <optional>
+                    <attribute name="android:label"/>
+                  </optional>
+                  <optional>
+                    <attribute name="android:launchMode">
+                      <data type="NCName"/>
+                    </attribute>
+                  </optional>
+                  <optional>
+                    <attribute name="android:logo"/>
+                  </optional>
+                  <attribute name="android:name"/>
+                  <optional>
+                    <attribute name="android:noHistory">
+                      <data type="boolean"/>
+                    </attribute>
+                  </optional>
+                  <optional>
+                    <attribute name="android:parentActivityName">
+                      <data type="NMTOKEN"/>
+                    </attribute>
+                  </optional>
+                  <optional>
+                    <attribute name="android:persistableMode">
+                      <data type="NCName"/>
+                    </attribute>
+                  </optional>
+                  <optional>
+                    <attribute name="android:relinquishTaskIdentity">
+                      <data type="boolean"/>
+                    </attribute>
+                  </optional>
+                  <optional>
+                    <attribute name="android:screenOrientation">
+                      <data type="NCName"/>
+                    </attribute>
+                  </optional>
+                  <optional>
+                    <attribute name="android:stateNotNeeded">
+                      <data type="boolean"/>
+                    </attribute>
+                  </optional>
+                  <optional>
+                    <attribute name="android:taskAffinity"/>
+                  </optional>
+                  <optional>
+                    <attribute name="android:theme"/>
+                  </optional>
+                  <optional>
+                    <attribute name="android:uiOptions">
+                      <data type="NCName"/>
+                    </attribute>
+                  </optional>
+                  <optional>
+                    <attribute name="android:windowSoftInputMode"/>
+                  </optional>
+                  <zeroOrMore>
+                    <choice>
+                      <ref name="intent-filter"/>
+                      <ref name="meta-data"/>
+                    </choice>
+                  </zeroOrMore>
+                </element>
+                <element name="activity-alias">
+                  <attribute name="android:label"/>
+                  <attribute name="android:name">
+                    <data type="NMTOKEN"/>
+                  </attribute>
+                  <attribute name="android:targetActivity">
+                    <data type="NMTOKEN"/>
+                  </attribute>
+                  <ref name="intent-filter"/>
+                </element>
+                <element name="provider">
+                  <attribute name="android:authorities">
+                    <data type="NCName"/>
+                  </attribute>
+                  <optional>
+                    <attribute name="android:enabled"/>
+                  </optional>
+                  <optional>
+                    <attribute name="android:exported">
+                      <data type="boolean"/>
+                    </attribute>
+                  </optional>
+                  <optional>
+                    <attribute name="android:grantUriPermissions">
+                      <data type="boolean"/>
+                    </attribute>
+                  </optional>
+                  <attribute name="android:name"/>
+                  <optional>
+                    <attribute name="android:permission"/>
+                  </optional>
+                  <optional>
+                    <choice>
+                      <ref name="intent-filter"/>
+                      <element name="grant-uri-permission">
+                        <attribute name="android:pathPattern"/>
+                      </element>
+                    </choice>
+                  </optional>
+                </element>
+                <element name="receiver">
+                  <optional>
+                    <attribute name="android:description"/>
+                  </optional>
+                  <optional>
+                    <attribute name="android:enabled">
+                      <data type="boolean"/>
+                    </attribute>
+                  </optional>
+                  <optional>
+                    <attribute name="android:exported">
+                      <data type="boolean"/>
+                    </attribute>
+                  </optional>
+                  <optional>
+                    <attribute name="android:label"/>
+                  </optional>
+                  <attribute name="android:name"/>
+                  <optional>
+                    <attribute name="android:permission"/>
+                  </optional>
+                  <optional>
+                    <attribute name="android:process">
+                      <data type="NMTOKEN"/>
+                    </attribute>
+                  </optional>
+                  <zeroOrMore>
+                    <choice>
+                      <ref name="intent-filter"/>
+                      <ref name="meta-data"/>
+                    </choice>
+                  </zeroOrMore>
+                </element>
+                <element name="service">
+                  <optional>
+                    <attribute name="android:allowEmbedded">
+                      <data type="boolean"/>
+                    </attribute>
+                  </optional>
+                  <optional>
+                    <attribute name="android:enabled"/>
+                  </optional>
+                  <optional>
+                    <attribute name="android:exported">
+                      <data type="boolean"/>
+                    </attribute>
+                  </optional>
+                  <optional>
+                    <attribute name="android:isolatedProcess">
+                      <data type="boolean"/>
+                    </attribute>
+                  </optional>
+                  <optional>
+                    <attribute name="android:label"/>
+                  </optional>
+                  <attribute name="android:name"/>
+                  <optional>
+                    <attribute name="android:permission"/>
+                  </optional>
+                  <optional>
+                    <attribute name="android:process">
+                      <data type="NMTOKEN"/>
+                    </attribute>
+                  </optional>
+                  <optional>
+                    <attribute name="android:stopWithTask">
+                      <data type="boolean"/>
+                    </attribute>
+                  </optional>
+                  <optional>
+                    <attribute name="android:taskAffinity"/>
+                  </optional>
+                  <zeroOrMore>
+                    <choice>
+                      <ref name="intent-filter"/>
+                      <ref name="meta-data"/>
+                    </choice>
+                  </zeroOrMore>
+                </element>
+              </choice>
+            </zeroOrMore>
+          </element>
+          <element name="instrumentation">
+            <attribute name="android:label"/>
+            <attribute name="android:name">
+              <data type="NMTOKEN"/>
+            </attribute>
+            <attribute name="android:targetPackage">
+              <data type="NCName"/>
+            </attribute>
+          </element>
+          <element name="permission">
+            <attribute name="android:name">
+              <data type="NCName"/>
+            </attribute>
+          </element>
+          <element name="supports-screens">
+            <optional>
+              <attribute name="android:compatibleWidthLimitDp">
+                <data type="integer"/>
+              </attribute>
+            </optional>
+            <optional>
+              <attribute name="android:largeScreens">
+                <data type="boolean"/>
+              </attribute>
+            </optional>
+            <optional>
+              <attribute name="android:requiresSmallestWidthDp">
+                <data type="integer"/>
+              </attribute>
+            </optional>
+          </element>
+          <element name="uses-feature">
+            <optional>
+              <attribute name="android:glEsVersion">
+                <data type="NMTOKEN"/>
+              </attribute>
+            </optional>
+            <optional>
+              <attribute name="android:name">
+                <data type="NCName"/>
+              </attribute>
+            </optional>
+            <optional>
+              <attribute name="android:required">
+                <data type="boolean"/>
+              </attribute>
+            </optional>
+          </element>
+          <element name="uses-permission">
+            <attribute name="android:name">
+              <data type="NCName"/>
+            </attribute>
+          </element>
+          <element name="uses-permission-sdk-m">
+            <attribute name="android:name"/>
+          </element>
+          <element name="uses-sdk">
+            <optional>
+              <attribute name="minSdkVersion">
+                <data type="integer"/>
+              </attribute>
+            </optional>
+            <optional>
+              <attribute name="android:minSdkVersion">
+                <data type="NMTOKEN"/>
+              </attribute>
+            </optional>
+            <optional>
+              <attribute name="android:targetSdkVersion">
+                <data type="NMTOKEN"/>
+              </attribute>
+            </optional>
+          </element>
+        </choice>
+      </oneOrMore>
+    </element>
+  </start>
+  <define name="intent-filter">
+    <element name="intent-filter">
+      <optional>
+        <attribute name="android:label"/>
+      </optional>
+      <zeroOrMore>
+        <element name="action">
+          <attribute name="android:name">
+            <data type="NCName"/>
+          </attribute>
+        </element>
+      </zeroOrMore>
+      <zeroOrMore>
+        <choice>
+          <element name="category">
+            <attribute name="android:name">
+              <data type="NCName"/>
+            </attribute>
+          </element>
+          <element name="data">
+            <optional>
+              <attribute name="android:host">
+                <data type="NCName"/>
+              </attribute>
+            </optional>
+            <optional>
+              <attribute name="android:mimeType"/>
+            </optional>
+            <optional>
+              <attribute name="android:scheme">
+                <data type="NCName"/>
+              </attribute>
+            </optional>
+            <optional>
+              <attribute name="android:ssp">
+                <data type="NCName"/>
+              </attribute>
+            </optional>
+          </element>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="meta-data">
+    <element name="meta-data">
+      <attribute name="android:name">
+        <data type="NCName"/>
+      </attribute>
+      <optional>
+        <attribute name="android:resource"/>
+      </optional>
+      <optional>
+        <attribute name="android:value"/>
+      </optional>
+    </element>
+  </define>
+</grammar>
